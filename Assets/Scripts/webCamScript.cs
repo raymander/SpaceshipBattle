@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WebCamScript : MonoBehaviour {
 
-    public GameObject webCameraPlane;
+    public RawImage webCameraPlane;
     private bool gyroEnabled;
     public Button firingButton;
 
@@ -25,7 +25,7 @@ public class WebCamScript : MonoBehaviour {
                 GameObject cameraParent = new GameObject("camParent");
                 cameraParent.transform.position = this.transform.position;
                 this.transform.parent = cameraParent.transform;
-                cameraParent.transform.Rotate(Vector3.right, 90);
+                //cameraParent.transform.Rotate(Vector3.right, 90);
             }
             else
             {
@@ -33,9 +33,13 @@ public class WebCamScript : MonoBehaviour {
             }
         }
       
-        WebCamTexture webCameraTexture = new WebCamTexture();
-        webCameraPlane.GetComponent<MeshRenderer>().material.mainTexture = webCameraTexture;
+        WebCamTexture webCameraTexture = new WebCamTexture(Screen.currentResolution.height, Screen.currentResolution.width, 30);
         webCameraTexture.Play();
+        //print(Screen.currentResolution.width);
+
+        webCameraPlane.texture = webCameraTexture;
+        //webCameraPlane.SetNativeSize();
+        //print(webCameraPlane.GetComponent<RectTransform>().rect.width);
 
         firingButton.onClick.AddListener(OnButtonDown);
     }
