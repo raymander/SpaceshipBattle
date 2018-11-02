@@ -37,7 +37,9 @@ public class WebCamScript : MonoBehaviour {
         webCameraTexture.Play();
         //print(Screen.currentResolution.width);
 
+
         webCameraPlane.texture = webCameraTexture;
+       
         //webCameraPlane.SetNativeSize();
         //print(webCameraPlane.GetComponent<RectTransform>().rect.width);
 
@@ -50,6 +52,7 @@ public class WebCamScript : MonoBehaviour {
         Quaternion cameraRotation = new Quaternion(Input.gyro.attitude.x, Input.gyro.attitude.y, -Input.gyro.attitude.z, -Input.gyro.attitude.w);
         this.transform.localRotation = cameraRotation;
 
+   
 	}
 
     private bool EnableGyro(){
