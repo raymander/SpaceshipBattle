@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Nov 02 19:24:37 EET 2018
+#Mon Nov 05 16:41:16 EET 2018
 60.set=ASSET
 52.set=ASSET
 53.base=/Users/Markiz/Desktop/code/Unity scripts/markerlessTest/Temp/gradleOut/build/intermediates/transforms/dex/release/0

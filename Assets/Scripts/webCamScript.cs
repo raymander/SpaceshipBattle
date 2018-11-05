@@ -8,7 +8,8 @@ public class WebCamScript : MonoBehaviour {
     public RawImage webCameraPlane;
     private bool gyroEnabled;
     public Button firingButton;
-
+    public Text log;
+    public Canvas canvas;
     void Awake()
     {
         gyroEnabled = EnableGyro();
@@ -35,13 +36,15 @@ public class WebCamScript : MonoBehaviour {
       
         WebCamTexture webCameraTexture = new WebCamTexture(Screen.currentResolution.height, Screen.currentResolution.width, 30);
         webCameraTexture.Play();
-        //print(Screen.currentResolution.width);
+        log.text += Screen.currentResolution.width + ", ";
+
 
 
         webCameraPlane.texture = webCameraTexture;
-       
-        //webCameraPlane.SetNativeSize();
-        //print(webCameraPlane.GetComponent<RectTransform>().rect.width);
+
+  
+       log.text += webCameraPlane.GetComponent<RectTransform>().rect.width + ", ";
+       log.text += canvas.GetComponent<RectTransform>().rect.width;
 
         firingButton.onClick.AddListener(OnButtonDown);
     }
